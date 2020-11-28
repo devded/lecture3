@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task List</title>
+</head>
+<body>
+    <h2>Tasks List {{name}}</h2>
+
+    <div>
+        <ul>Task 1</ul>
+        <ul>Task 2</ul>
+        <ul>Task 3</ul>
+    </div>
+        
+    <div>
+        {% for list in lists %}
+            <ul> {{list}} </ul>
+        {% endfor %}
+    </div>
+    
+    <a href=" {% url 'add'%}">Add Task</a>
+</body>
+</html>
