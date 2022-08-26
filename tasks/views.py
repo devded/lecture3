@@ -20,16 +20,15 @@ def index(request):
 
 
 def add(request):
-    if request.method == "POST":
-        form = request.POST.dict()
-        name = form.get("name")
-        #return HttpResponse(name)
-        mylists.append(name)
-
-        tasks = {
-            'name': "Dedar Alam",
-            'lists': mylists
-        }
-        return render(request,'tasks/index.html', tasks);
-    else:
+    if request.method != "POST":
         return render(request, 'tasks/add.html');
+    form = request.POST.dict()
+    name = form.get("name")
+    #return HttpResponse(name)
+    mylists.append(name)
+
+    tasks = {
+        'name': "Dedar Alam",
+        'lists': mylists
+    }
+    return render(request,'tasks/index.html', tasks);
